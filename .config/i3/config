@@ -32,6 +32,14 @@ exec xinput set-prop 15 303 1
 #Barrier?
 exec --no-startup-id barrier
 
+#Lock screen
+bindsym Mod4+End exec "i3lock -c 000000"
+
+#Auto lock the screen
+#exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
+#exec xautolock -time 2 -locker "i3lock -c 000000"
+#exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -196,4 +204,20 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+	font pango:FontAwesome:size=25
 }
+
+# Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym $mod+Shift+Prior exec --no-startup-id brightnessctl set 5%+ # increase screen brightness
+bindsym $mod+Shift+Next exec --no-startup-id brightnessctl set 5%- # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
