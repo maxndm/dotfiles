@@ -44,7 +44,7 @@ exec_always --no-startup-id [ $HOSTNAME == Archangel ] && nitrogen --head=0 --se
 exec --no-startup-id setxkbmap cz
 
 #Touchpad
-exec xinput set-prop 15 303 1
+#exec xinput set-prop 15 303 1
 
 #Numlock
 exec --no-startup-id numlockx on
