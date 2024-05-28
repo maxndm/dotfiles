@@ -1,0 +1,5 @@
+mkdir $HOME/.tmp
+maim --select | xclip -selection clipboard -t image/png
+xclip -selection clipboard -t image/png -o | convert png:- $HOME/.tmp/screenshot.png
+gwenview $HOME/.tmp/screenshot.png
+rm -rf $HOME/.tmp
